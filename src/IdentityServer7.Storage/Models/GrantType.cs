@@ -3,7 +3,6 @@
 
 #pragma warning disable 1591
 
-
 namespace IdentityServer7.Storage.Models;
 
 public static class GrantType

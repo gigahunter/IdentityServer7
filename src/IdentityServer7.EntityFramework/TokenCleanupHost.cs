@@ -1,6 +1,5 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
 
 using IdentityServer7.EntityFramework.Storage.Options;
 using IdentityServer7.EntityFramework.Storage.TokenCleanup;
@@ -20,7 +19,7 @@ namespace IdentityServer7.EntityFramework
         private readonly ILogger<TokenCleanupHost> _logger;
 
         private TimeSpan CleanupInterval => TimeSpan.FromSeconds(_options.TokenCleanupInterval);
-        
+
         private CancellationTokenSource _source;
 
         /// <summary>
@@ -51,7 +50,7 @@ namespace IdentityServer7.EntityFramework
 
                 Task.Factory.StartNew(() => StartInternalAsync(_source.Token));
             }
-            
+
             return Task.CompletedTask;
         }
 
@@ -108,7 +107,7 @@ namespace IdentityServer7.EntityFramework
             }
         }
 
-        async Task RemoveExpiredGrantsAsync()
+        private async Task RemoveExpiredGrantsAsync()
         {
             try
             {

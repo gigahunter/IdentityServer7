@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using Microsoft.Extensions.Logging;
 
 namespace IdentityServer7.Validation
@@ -76,12 +75,12 @@ namespace IdentityServer7.Validation
             public string RawValue { get; }
 
             /// <summary>
-            /// The parsed name of the scope. 
+            /// The parsed name of the scope.
             /// </summary>
             public string ParsedName { get; private set; }
 
             /// <summary>
-            /// The parsed parameter value of the scope. 
+            /// The parsed parameter value of the scope.
             /// </summary>
             public string ParsedParameter { get; private set; }
 
@@ -99,7 +98,6 @@ namespace IdentityServer7.Validation
             /// Indicates if parsing the scope was successful.
             /// </summary>
             public bool Succeeded => !Ignore && Error == null;
-
 
             /// <summary>
             /// Ctor. Indicates success, but the scope should not be included in result.

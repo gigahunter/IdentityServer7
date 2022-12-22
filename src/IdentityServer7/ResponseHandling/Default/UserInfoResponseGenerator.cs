@@ -1,17 +1,16 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityModel;
 using IdentityServer7.Extensions;
 using IdentityServer7.Models;
 using IdentityServer7.Services;
 using IdentityServer7.Storage;
+using IdentityServer7.Storage.Models;
+using IdentityServer7.Storage.Stores;
 using IdentityServer7.Validation;
 using Microsoft.Extensions.Logging;
 using System.Security.Claims;
-using IdentityServer7.Storage.Models;
-using IdentityServer7.Storage.Stores;
 
 namespace IdentityServer7.ResponseHandling
 {

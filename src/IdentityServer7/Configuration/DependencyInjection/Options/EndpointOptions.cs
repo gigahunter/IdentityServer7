@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 namespace IdentityServer7.Configuration
 {
     /// <summary>
@@ -18,7 +17,7 @@ namespace IdentityServer7.Configuration
         public bool EnableAuthorizeEndpoint { get; set; } = true;
 
         /// <summary>
-        /// Gets or sets if JWT request_uri processing is enabled on the authorize endpoint. 
+        /// Gets or sets if JWT request_uri processing is enabled on the authorize endpoint.
         /// </summary>
         public bool EnableJwtRequestUri { get; set; } = false;
 

@@ -1,16 +1,15 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityServer7.Configuration;
 using IdentityServer7.Extensions;
 using IdentityServer7.Hosting;
 using IdentityServer7.Storage;
+using IdentityServer7.Storage.Stores;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Reflection;
-using IdentityServer7.Storage.Stores;
 
 namespace Microsoft.AspNetCore.Builder
 {
@@ -34,7 +33,7 @@ namespace Microsoft.AspNetCore.Builder
             app.ConfigureCors();
 
             // it seems ok if we have UseAuthentication more than once in the pipeline --
-            // this will just re-run the various callback handlers and the default authN 
+            // this will just re-run the various callback handlers and the default authN
             // handler, which just re-assigns the user on the context. claims transformation
             // will run twice, since that's not cached (whereas the authN handler result is)
             // related: https://github.com/aspnet/Security/issues/1399
@@ -82,7 +81,6 @@ namespace Microsoft.AspNetCore.Builder
         {
             var options = services.GetRequiredService<IdentityServerOptions>();
             var schemes = services.GetRequiredService<IAuthenticationSchemeProvider>();
-
 
             if (await schemes.GetDefaultAuthenticateSchemeAsync() == null && options.Authentication.CookieAuthenticationScheme == null)
             {

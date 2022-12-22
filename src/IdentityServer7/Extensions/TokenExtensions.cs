@@ -1,19 +1,15 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
+using IdentityModel;
+using IdentityServer7.Configuration;
+using IdentityServer7.Storage.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.Logging;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text.Json;
 using System.Text.Json.Nodes;
-
-using IdentityModel;
-
-using IdentityServer7.Configuration;
-using IdentityServer7.Storage.Models;
-
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.Extensions.Logging;
 
 //using Newtonsoft.Json.Linq;
 
@@ -91,7 +87,7 @@ namespace IdentityServer7.Extensions
             }
 
             // deal with json types
-            // calling ToArray() to trigger JSON parsing once and so later 
+            // calling ToArray() to trigger JSON parsing once and so later
             // collection identity comparisons work for the anonymous type
             try
             {

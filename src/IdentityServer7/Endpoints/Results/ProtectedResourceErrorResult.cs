@@ -1,13 +1,12 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
+using IdentityModel;
 using IdentityServer7.Extensions;
-using Microsoft.Extensions.Primitives;
 using IdentityServer7.Hosting;
 using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Primitives;
 using Microsoft.Net.Http.Headers;
-using IdentityModel;
 
 namespace IdentityServer7.Endpoints.Results
 {

@@ -1,16 +1,13 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityServer7.Extensions;
-using IdentityServer7.Storage;
-using System.Security.Claims;
-using IdentityServer7.Storage.Models;
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.Extensions.Logging;
-using IdentityServer7.Validation;
 using IdentityServer7.Storage.Models;
 using IdentityServer7.Storage.Stores;
+using IdentityServer7.Validation;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.Extensions.Logging;
+using System.Security.Claims;
 
 namespace IdentityServer7.Services
 {
@@ -94,7 +91,7 @@ namespace IdentityServer7.Services
             var scopes = parsedScopes.Select(x => x.RawValue).ToArray();
 
             // we always require consent for offline access if
-            // the client has not disabled RequireConsent 
+            // the client has not disabled RequireConsent
             if (scopes.Contains(IdentityServerConstants.StandardScopes.OfflineAccess))
             {
                 Logger.LogDebug("Scopes contains offline_access, consent is required");

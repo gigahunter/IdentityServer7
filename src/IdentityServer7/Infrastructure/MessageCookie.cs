@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityServer7.Configuration;
 using IdentityServer7.Extensions;
 using IdentityServer7.Models;
@@ -90,7 +89,7 @@ namespace IdentityServer7
                     Path = CookiePath,
                     IsEssential = true
                     // don't need to set same-site since cookie is expected to be sent
-                    // to only another page in this host. 
+                    // to only another page in this host.
                 });
         }
 

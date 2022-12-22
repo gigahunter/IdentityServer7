@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityServer7.EntityFramework.Storage.Interfaces;
 using IdentityServer7.EntityFramework.Storage.Options;
 using Microsoft.EntityFrameworkCore;
@@ -28,7 +27,7 @@ public class TokenCleanupService
     /// <param name="logger"></param>
     public TokenCleanupService(
         OperationalStoreOptions options,
-        IPersistedGrantDbContext persistedGrantDbContext, 
+        IPersistedGrantDbContext persistedGrantDbContext,
         ILogger<TokenCleanupService> logger,
         IOperationalStoreNotification operationalStoreNotification = null)
     {
@@ -67,7 +66,7 @@ public class TokenCleanupService
     protected virtual async Task RemoveGrantsAsync()
     {
         var found = Int32.MaxValue;
-            
+
         while (found >= _options.TokenCleanupBatchSize)
         {
             var expiredGrants = await _persistedGrantDbContext.PersistedGrants
@@ -91,7 +90,6 @@ public class TokenCleanupService
             }
         }
     }
-
 
     /// <summary>
     /// Removes the stale device codes.

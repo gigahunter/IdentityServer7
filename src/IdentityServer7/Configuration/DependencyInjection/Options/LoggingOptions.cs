@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityModel;
 
 namespace IdentityServer7.Configuration
@@ -12,7 +11,7 @@ namespace IdentityServer7.Configuration
     public class LoggingOptions
     {
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ICollection<string> TokenRequestSensitiveValuesFilter { get; set; } =
             new HashSet<string>
@@ -25,7 +24,7 @@ namespace IdentityServer7.Configuration
             };
 
         /// <summary>
-        /// 
+        ///
         /// </summary>
         public ICollection<string> AuthorizeRequestSensitiveValuesFilter { get; set; } =
             new HashSet<string>

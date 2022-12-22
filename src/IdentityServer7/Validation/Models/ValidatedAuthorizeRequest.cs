@@ -1,6 +1,5 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
 
 using IdentityModel;
 
@@ -191,8 +190,6 @@ namespace IdentityServer7.Validation
                                             ResponseType == OidcConstants.ResponseTypes.CodeIdToken ||
                                             ResponseType == OidcConstants.ResponseTypes.CodeToken ||
                                             ResponseType == OidcConstants.ResponseTypes.CodeIdTokenToken;
-
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="ValidatedAuthorizeRequest"/> class.

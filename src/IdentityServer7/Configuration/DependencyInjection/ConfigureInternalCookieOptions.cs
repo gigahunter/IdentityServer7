@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityServer7.Extensions;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.Extensions.Logging;
@@ -45,7 +44,7 @@ namespace IdentityServer7.Configuration
                 options.Cookie.Name = IdentityServerConstants.ExternalCookieAuthenticationScheme;
                 options.Cookie.IsEssential = true;
                 // https://github.com/IdentityServer/IdentityServer7/issues/2595
-                // need to set None because iOS 12 safari considers the POST back to the client from the 
+                // need to set None because iOS 12 safari considers the POST back to the client from the
                 // IdP as not safe, so cookies issued from response (with lax) then should not be honored.
                 // so we need to make those cookies issued without same-site, thus the browser will
                 // hold onto them and send on the next redirect to the callback page.

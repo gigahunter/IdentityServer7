@@ -1,6 +1,5 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
 
 using IdentityServer7.Extensions;
 using IdentityServer7.ResponseHandling;
@@ -17,7 +16,6 @@ namespace IdentityServer7.Logging.Models
         public string Scope { get; set; }
         public string Error { get; set; }
         public string ErrorDescription { get; set; }
-
 
         public AuthorizeResponseLog(AuthorizeResponse response)
         {

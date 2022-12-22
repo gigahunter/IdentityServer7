@@ -1,10 +1,10 @@
-using System.Security.Claims;
 using IdentityModel;
 using IdentityServer7.Configuration;
 using IdentityServer7.Extensions;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Authentication;
+using System.Security.Claims;
 
 namespace IdentityServer7.Services
 {

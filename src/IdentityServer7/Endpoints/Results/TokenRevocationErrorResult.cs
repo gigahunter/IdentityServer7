@@ -1,6 +1,5 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
 
 using IdentityServer7.Extensions;
 using IdentityServer7.Hosting;
@@ -39,7 +38,7 @@ namespace IdentityServer7.Endpoints.Results
         /// <returns></returns>
         public Task ExecuteAsync(HttpContext context)
         {
-            context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+            context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
             return context.Response.WriteJsonAsync(new { error = Error });
         }
     }

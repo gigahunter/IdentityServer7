@@ -1,14 +1,13 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityServer7.EntityFramework.Storage.Interfaces;
 using IdentityServer7.EntityFramework.Storage.Mappers;
-using Microsoft.Extensions.Logging;
-using Microsoft.EntityFrameworkCore;
-using IdentityServer7.Storage.Stores;
 using IdentityServer7.Storage.Extensions;
 using IdentityServer7.Storage.Models;
+using IdentityServer7.Storage.Stores;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer7.EntityFramework.Storage.Stores;
 
@@ -87,7 +86,7 @@ public class PersistedGrantStore : IPersistedGrantStore
 
         var persistedGrants = await Filter(Context.PersistedGrants.AsQueryable(), filter).ToArrayAsync();
         persistedGrants = Filter(persistedGrants.AsQueryable(), filter).ToArray();
-            
+
         var model = persistedGrants.Select(x => x.ToModel());
 
         Logger.LogDebug("{persistedGrantCount} persisted grants found for {@filter}", persistedGrants.Length, filter);
@@ -100,7 +99,7 @@ public class PersistedGrantStore : IPersistedGrantStore
     {
         var persistedGrant = (await Context.PersistedGrants.Where(x => x.Key == key).ToArrayAsync())
             .SingleOrDefault(x => x.Key == key);
-        if (persistedGrant!= null)
+        if (persistedGrant != null)
         {
             Logger.LogDebug("removing {persistedGrantKey} persisted grant from database", key);
 
@@ -110,7 +109,7 @@ public class PersistedGrantStore : IPersistedGrantStore
             {
                 await Context.SaveChangesAsync();
             }
-            catch(DbUpdateConcurrencyException ex)
+            catch (DbUpdateConcurrencyException ex)
             {
                 Logger.LogInformation("exception removing {persistedGrantKey} persisted grant from database: {error}", key, ex.Message);
             }
@@ -142,7 +141,6 @@ public class PersistedGrantStore : IPersistedGrantStore
             Logger.LogInformation("removing {persistedGrantCount} persisted grants from database for subject {@filter}: {error}", persistedGrants.Length, filter, ex.Message);
         }
     }
-
 
     private IQueryable<Entities.PersistedGrant> Filter(IQueryable<Entities.PersistedGrant> query, PersistedGrantFilter filter)
     {

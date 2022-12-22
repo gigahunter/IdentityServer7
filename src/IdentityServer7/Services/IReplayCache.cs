@@ -6,7 +6,7 @@ namespace IdentityServer7.Services
     public interface IReplayCache
     {
         /// <summary>
-        /// Adds a handle to the cache 
+        /// Adds a handle to the cache
         /// </summary>
         /// <param name="purpose"></param>
         /// <param name="handle"></param>
@@ -14,9 +14,8 @@ namespace IdentityServer7.Services
         /// <returns></returns>
         Task AddAsync(string purpose, string handle, DateTimeOffset expiration);
 
-
         /// <summary>
-        /// Checks if a cached handle exists 
+        /// Checks if a cached handle exists
         /// </summary>
         /// <param name="purpose"></param>
         /// <param name="handle"></param>

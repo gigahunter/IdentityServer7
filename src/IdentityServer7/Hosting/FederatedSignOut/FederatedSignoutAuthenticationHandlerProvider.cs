@@ -1,6 +1,5 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
 
 using IdentityServer7.Configuration.DependencyInjection;
 using Microsoft.AspNetCore.Authentication;
@@ -10,9 +9,9 @@ namespace IdentityServer7.Hosting.FederatedSignOut
 {
     // this intercepts IAuthenticationRequestHandler authentication handlers
     // to detect when they are handling federated signout. when they are invoked,
-    // call signout on the default authentication scheme, and return 200 then 
-    // we assume they are handling the federated signout in an iframe. 
-    // based on this assumption, we then render our federated signout iframes 
+    // call signout on the default authentication scheme, and return 200 then
+    // we assume they are handling the federated signout in an iframe.
+    // based on this assumption, we then render our federated signout iframes
     // to any current clients.
     public class FederatedSignoutAuthenticationHandlerProvider : IAuthenticationHandlerProvider
     {

@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityServer7.Extensions;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
@@ -22,7 +21,7 @@ namespace IdentityServer7.Hosting.FederatedSignOut
             _inner = inner;
             _context = httpContextAccessor.HttpContext;
 
-            var factory = (ILoggerFactory)_context.RequestServices.GetService(typeof(ILoggerFactory));
+            var factory = (ILoggerFactory) _context.RequestServices.GetService(typeof(ILoggerFactory));
             _logger = factory?.CreateLogger(GetType());
         }
 
@@ -38,7 +37,7 @@ namespace IdentityServer7.Hosting.FederatedSignOut
             if (result && _context.GetSignOutCalled() && _context.Response.StatusCode == 200)
             {
                 // given that this runs prior to the authentication middleware running
-                // we need to explicitly trigger authentication so we can have our 
+                // we need to explicitly trigger authentication so we can have our
                 // session service populated with the current user info
                 await _context.AuthenticateAsync();
 

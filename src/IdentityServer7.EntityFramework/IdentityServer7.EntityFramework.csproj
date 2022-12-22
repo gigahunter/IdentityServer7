@@ -13,8 +13,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IdentityServer7" Version="1.0.1" />
-    <PackageReference Include="IdentityServer7.EntityFramework.Storage" Version="1.0.1" />
+    <ProjectReference Include="..\IdentityServer7.EntityFramework.Storage\IdentityServer7.EntityFramework.Storage.csproj" />
+    <ProjectReference Include="..\IdentityServer7\IdentityServer7.csproj" />
   </ItemGroup>
 
 </Project>

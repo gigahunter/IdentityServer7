@@ -1,4 +1,4 @@
-﻿namespace IdentityServer7.Validation
+namespace IdentityServer7.Validation
 {
     /// <summary>
     /// Context for custom authorize request validation.
@@ -6,7 +6,7 @@
     public class CustomAuthorizeRequestValidationContext
     {
         /// <summary>
-        /// The result of custom validation. 
+        /// The result of custom validation.
         /// </summary>
         public AuthorizeRequestValidationResult Result { get; set; }
     }

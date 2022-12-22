@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http;
 using System.Security.Claims;
 
 namespace IdentityServer7.Hosting.LocalApiAuthentication
@@ -17,7 +17,6 @@ namespace IdentityServer7.Hosting.LocalApiAuthentication
         /// Invoked after the security token has passed validation and a ClaimsIdentity has been generated.
         /// </summary>
         public virtual Task ClaimsTransformation(ClaimsTransformationContext context) => OnClaimsTransformation(context);
-
     }
 
     /// <summary>

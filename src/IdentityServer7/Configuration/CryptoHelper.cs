@@ -1,4 +1,4 @@
-﻿using IdentityModel;
+using IdentityModel;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
@@ -132,6 +132,7 @@ namespace IdentityServer7.Configuration
 
             return true;
         }
+
         public static bool IsValidCrvValueForAlgorithm(string crv)
         {
             return crv == JsonWebKeyECTypes.P256 ||

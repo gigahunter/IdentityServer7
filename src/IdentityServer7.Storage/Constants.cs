@@ -3,7 +3,7 @@
 
 namespace IdentityServer7.Storage;
 
-public static class Constants
+internal static class Constants
 {
     public const string IdentityServerName = "IdentityServer7";
     public const string IdentityServerAuthenticationType = IdentityServerName;

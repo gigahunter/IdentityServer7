@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using System.Security.Cryptography;
 
 namespace IdentityServer7.Services
@@ -54,11 +53,11 @@ namespace IdentityServer7.Services
                     rng.GetBytes(uint32Buffer);
                     var rand = BitConverter.ToUInt32(uint32Buffer, 0);
 
-                    const long max = 1 + (long)uint.MaxValue;
+                    const long max = 1 + (long) uint.MaxValue;
                     var remainder = max % diff;
                     if (rand < max - remainder)
                     {
-                        return (int)(minValue + rand % diff);
+                        return (int) (minValue + rand % diff);
                     }
                 }
             }

@@ -1,6 +1,5 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
 
 using IdentityServer7.EntityFramework.Storage.Entities;
 using IdentityServer7.EntityFramework.Storage.Options;
@@ -49,7 +48,7 @@ public static class ModelBuilderExtensions
 
             client.HasIndex(x => x.ClientId).IsUnique();
 
-            client.HasMany(x => x.AllowedGrantTypes).WithOne(x => x.Client).HasForeignKey(x=>x.ClientId).IsRequired().OnDelete(DeleteBehavior.Cascade);
+            client.HasMany(x => x.AllowedGrantTypes).WithOne(x => x.Client).HasForeignKey(x => x.ClientId).IsRequired().OnDelete(DeleteBehavior.Cascade);
             client.HasMany(x => x.RedirectUris).WithOne(x => x.Client).HasForeignKey(x => x.ClientId).IsRequired().OnDelete(DeleteBehavior.Cascade);
             client.HasMany(x => x.PostLogoutRedirectUris).WithOne(x => x.Client).HasForeignKey(x => x.ClientId).IsRequired().OnDelete(DeleteBehavior.Cascade);
             client.HasMany(x => x.AllowedScopes).WithOne(x => x.Client).HasForeignKey(x => x.ClientId).IsRequired().OnDelete(DeleteBehavior.Cascade);
@@ -166,7 +165,7 @@ public static class ModelBuilderExtensions
             // apparently anything over 4K converts to nvarchar(max) on SqlServer
             codes.Property(x => x.Data).HasMaxLength(50000).IsRequired();
 
-            codes.HasKey(x => new {x.UserCode});
+            codes.HasKey(x => new { x.UserCode });
 
             codes.HasIndex(x => x.DeviceCode).IsUnique();
             codes.HasIndex(x => x.Expiration);
@@ -210,8 +209,6 @@ public static class ModelBuilderExtensions
             property.Property(x => x.Value).HasMaxLength(2000).IsRequired();
         });
 
-
-
         modelBuilder.Entity<ApiResource>(apiResource =>
         {
             apiResource.ToTable(storeOptions.ApiResource).HasKey(x => x.Id);
@@ -245,9 +242,9 @@ public static class ModelBuilderExtensions
             apiClaim.Property(x => x.Type).HasMaxLength(200).IsRequired();
         });
 
-        modelBuilder.Entity<ApiResourceScope>((System.Action<EntityTypeBuilder<ApiResourceScope>>)(apiScope =>
+        modelBuilder.Entity<ApiResourceScope>((System.Action<EntityTypeBuilder<ApiResourceScope>>) (apiScope =>
         {
-            apiScope.ToTable((TableConfiguration)storeOptions.ApiResourceScope).HasKey(x => x.Id);
+            apiScope.ToTable((TableConfiguration) storeOptions.ApiResourceScope).HasKey(x => x.Id);
 
             apiScope.Property(x => x.Scope).HasMaxLength(200).IsRequired();
         }));
@@ -258,7 +255,6 @@ public static class ModelBuilderExtensions
             property.Property(x => x.Key).HasMaxLength(250).IsRequired();
             property.Property(x => x.Value).HasMaxLength(2000).IsRequired();
         });
-
 
         modelBuilder.Entity<ApiScope>(scope =>
         {
@@ -284,7 +280,5 @@ public static class ModelBuilderExtensions
             property.Property(x => x.Key).HasMaxLength(250).IsRequired();
             property.Property(x => x.Value).HasMaxLength(2000).IsRequired();
         });
-
-
     }
 }

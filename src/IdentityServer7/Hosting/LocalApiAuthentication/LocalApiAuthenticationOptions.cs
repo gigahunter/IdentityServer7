@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using Microsoft.AspNetCore.Authentication;
 
 namespace IdentityServer7.Hosting.LocalApiAuthentication
@@ -27,7 +26,7 @@ namespace IdentityServer7.Hosting.LocalApiAuthentication
         /// </summary>
         public new LocalApiAuthenticationEvents Events
         {
-            get { return (LocalApiAuthenticationEvents)base.Events; }
+            get { return (LocalApiAuthenticationEvents) base.Events; }
             set { base.Events = value; }
         }
     }

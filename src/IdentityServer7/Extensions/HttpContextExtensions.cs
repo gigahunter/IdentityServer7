@@ -1,14 +1,13 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityServer7.Configuration;
-using IdentityServer7.Services;
-using Microsoft.AspNetCore.Http;
-using Microsoft.Extensions.DependencyInjection;
 using IdentityServer7.Models;
+using IdentityServer7.Services;
 using IdentityServer7.Storage;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
 
 #pragma warning disable 1591
 
@@ -61,7 +60,6 @@ namespace IdentityServer7.Extensions
 
             return request.Scheme + "://" + request.Host.Value;
         }
-
 
         public static void SetSignOutCalled(this HttpContext context)
         {
@@ -179,7 +177,7 @@ namespace IdentityServer7.Extensions
             }
             else if (currentSubId != null)
             {
-                // see if current user has any clients they need to signout of 
+                // see if current user has any clients they need to signout of
                 var clientIds = await userSession.GetClientListAsync();
                 if (clientIds.Any())
                 {

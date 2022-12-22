@@ -1,14 +1,13 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
-using IdentityServer7.Validation;
+using IdentityServer7.Configuration;
+using IdentityServer7.Extensions;
 using IdentityServer7.Hosting;
+using IdentityServer7.Validation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
 using System.Net;
-using IdentityServer7.Extensions;
-using IdentityServer7.Configuration;
 using System.Text.Encodings.Web;
 
 namespace IdentityServer7.Endpoints.Results
@@ -43,7 +42,7 @@ namespace IdentityServer7.Endpoints.Results
 
             if (_result.IsError)
             {
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                context.Response.StatusCode = (int) HttpStatusCode.BadRequest;
             }
             else
             {

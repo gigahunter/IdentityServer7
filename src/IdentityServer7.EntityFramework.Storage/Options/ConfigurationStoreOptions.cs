@@ -1,6 +1,5 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
 
 using Microsoft.EntityFrameworkCore;
 
@@ -42,6 +41,7 @@ public class ConfigurationStoreOptions
     /// The identity resource.
     /// </value>
     public TableConfiguration IdentityResource { get; set; } = new TableConfiguration("IdentityResources");
+
     /// <summary>
     /// Gets or sets the identity claim table configuration.
     /// </summary>
@@ -49,6 +49,7 @@ public class ConfigurationStoreOptions
     /// The identity claim.
     /// </value>
     public TableConfiguration IdentityResourceClaim { get; set; } = new TableConfiguration("IdentityResourceClaims");
+
     /// <summary>
     /// Gets or sets the identity resource property table configuration.
     /// </summary>
@@ -64,6 +65,7 @@ public class ConfigurationStoreOptions
     /// The API resource.
     /// </value>
     public TableConfiguration ApiResource { get; set; } = new TableConfiguration("ApiResources");
+
     /// <summary>
     /// Gets or sets the API secret table configuration.
     /// </summary>
@@ -71,6 +73,7 @@ public class ConfigurationStoreOptions
     /// The API secret.
     /// </value>
     public TableConfiguration ApiResourceSecret { get; set; } = new TableConfiguration("ApiResourceSecrets");
+
     /// <summary>
     /// Gets or sets the API scope table configuration.
     /// </summary>
@@ -78,6 +81,7 @@ public class ConfigurationStoreOptions
     /// The API scope.
     /// </value>
     public TableConfiguration ApiResourceScope { get; set; } = new TableConfiguration("ApiResourceScopes");
+
     /// <summary>
     /// Gets or sets the API claim table configuration.
     /// </summary>
@@ -85,6 +89,7 @@ public class ConfigurationStoreOptions
     /// The API claim.
     /// </value>
     public TableConfiguration ApiResourceClaim { get; set; } = new TableConfiguration("ApiResourceClaims");
+
     /// <summary>
     /// Gets or sets the API resource property table configuration.
     /// </summary>
@@ -100,6 +105,7 @@ public class ConfigurationStoreOptions
     /// The client.
     /// </value>
     public TableConfiguration Client { get; set; } = new TableConfiguration("Clients");
+
     /// <summary>
     /// Gets or sets the type of the client grant table configuration.
     /// </summary>
@@ -107,6 +113,7 @@ public class ConfigurationStoreOptions
     /// The type of the client grant.
     /// </value>
     public TableConfiguration ClientGrantType { get; set; } = new TableConfiguration("ClientGrantTypes");
+
     /// <summary>
     /// Gets or sets the client redirect URI table configuration.
     /// </summary>
@@ -114,6 +121,7 @@ public class ConfigurationStoreOptions
     /// The client redirect URI.
     /// </value>
     public TableConfiguration ClientRedirectUri { get; set; } = new TableConfiguration("ClientRedirectUris");
+
     /// <summary>
     /// Gets or sets the client post logout redirect URI table configuration.
     /// </summary>
@@ -121,6 +129,7 @@ public class ConfigurationStoreOptions
     /// The client post logout redirect URI.
     /// </value>
     public TableConfiguration ClientPostLogoutRedirectUri { get; set; } = new TableConfiguration("ClientPostLogoutRedirectUris");
+
     /// <summary>
     /// Gets or sets the client scopes table configuration.
     /// </summary>
@@ -128,6 +137,7 @@ public class ConfigurationStoreOptions
     /// The client scopes.
     /// </value>
     public TableConfiguration ClientScopes { get; set; } = new TableConfiguration("ClientScopes");
+
     /// <summary>
     /// Gets or sets the client secret table configuration.
     /// </summary>
@@ -135,6 +145,7 @@ public class ConfigurationStoreOptions
     /// The client secret.
     /// </value>
     public TableConfiguration ClientSecret { get; set; } = new TableConfiguration("ClientSecrets");
+
     /// <summary>
     /// Gets or sets the client claim table configuration.
     /// </summary>
@@ -142,6 +153,7 @@ public class ConfigurationStoreOptions
     /// The client claim.
     /// </value>
     public TableConfiguration ClientClaim { get; set; } = new TableConfiguration("ClientClaims");
+
     /// <summary>
     /// Gets or sets the client IdP restriction table configuration.
     /// </summary>
@@ -149,6 +161,7 @@ public class ConfigurationStoreOptions
     /// The client IdP restriction.
     /// </value>
     public TableConfiguration ClientIdPRestriction { get; set; } = new TableConfiguration("ClientIdPRestrictions");
+
     /// <summary>
     /// Gets or sets the client cors origin table configuration.
     /// </summary>
@@ -156,6 +169,7 @@ public class ConfigurationStoreOptions
     /// The client cors origin.
     /// </value>
     public TableConfiguration ClientCorsOrigin { get; set; } = new TableConfiguration("ClientCorsOrigins");
+
     /// <summary>
     /// Gets or sets the client property table configuration.
     /// </summary>
@@ -171,6 +185,7 @@ public class ConfigurationStoreOptions
     /// The API resource.
     /// </value>
     public TableConfiguration ApiScope { get; set; } = new TableConfiguration("ApiScopes");
+
     /// <summary>
     /// Gets or sets the scope claim table configuration.
     /// </summary>
@@ -178,6 +193,7 @@ public class ConfigurationStoreOptions
     /// The API scope claim.
     /// </value>
     public TableConfiguration ApiScopeClaim { get; set; } = new TableConfiguration("ApiScopeClaims");
+
     /// <summary>
     /// Gets or sets the API resource property table configuration.
     /// </summary>
@@ -185,5 +201,4 @@ public class ConfigurationStoreOptions
     /// The client property.
     /// </value>
     public TableConfiguration ApiScopeProperty { get; set; } = new TableConfiguration("ApiScopeProperties");
-
 }

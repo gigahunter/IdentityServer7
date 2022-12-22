@@ -7,7 +7,7 @@ namespace WebIdentityServer.Extensions
 {
     public static class IdentityServerConfig
     {
-        public static void AddIdentityServerConfig(this IServiceCollection services,string connectionStr) 
+        public static void AddIdentityServerConfig(this IServiceCollection services, string connectionStr)
         {
             var migrationsAssembly = typeof(IdentityServerConfig).Assembly.GetName().Name;
 

@@ -1,12 +1,11 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
+using IdentityServer7.Configuration;
+using IdentityServer7.Extensions;
 using IdentityServer7.Hosting;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using IdentityServer7.Configuration;
-using IdentityServer7.Extensions;
 
 namespace IdentityServer7.Endpoints.Results
 {
@@ -45,6 +44,7 @@ namespace IdentityServer7.Endpoints.Results
         {
             context.Response.AddScriptCspHeaders(_options.Csp, "sha256-fa5rxHhZ799izGRP38+h4ud5QXNT0SFaFlh4eqDumBI=");
         }
+
         private string GetHtml(string cookieName)
         {
             if (cookieName != LastCheckSessionCookieName)
@@ -83,14 +83,12 @@ namespace IdentityServer7.Endpoints.Results
 /* jshint node:true *//* global define, escape, unescape */
 'use strict';
 
-
 /**
  * SHA-256 hash function reference implementation.
  *
  * @namespace
  */
 var Sha256 = {};
-
 
 /**
  * Generates SHA-256 hash of string.
@@ -101,7 +99,7 @@ var Sha256 = {};
 Sha256.hash = function(msg) {
     // convert string to UTF-8, as SHA only deals with byte-streams
     msg = msg.utf8Encode();
-    
+
     // constants [§4.2.2]
     var K = [
         0x428a2f98, 0x71374491, 0xb5c0fbcf, 0xe9b5dba5, 0x3956c25b, 0x59f111f1, 0x923f82a4, 0xab1c5ed5,
@@ -116,8 +114,8 @@ Sha256.hash = function(msg) {
     var H = [
         0x6a09e667, 0xbb67ae85, 0x3c6ef372, 0xa54ff53a, 0x510e527f, 0x9b05688c, 0x1f83d9ab, 0x5be0cd19 ];
 
-    // PREPROCESSING 
- 
+    // PREPROCESSING
+
     msg += String.fromCharCode(0x80);  // add trailing '1' bit (+ 0's padding) to string [§5.1.1]
 
     // convert string msg into 512-bit/16-integer blocks arrays of ints [§5.2.1]
@@ -128,7 +126,7 @@ Sha256.hash = function(msg) {
     for (var i=0; i<N; i++) {
         M[i] = new Array(16);
         for (var j=0; j<16; j++) {  // encode 4 chars per integer, big-endian encoding
-            M[i][j] = (msg.charCodeAt(i*64+j*4)<<24) | (msg.charCodeAt(i*64+j*4+1)<<16) | 
+            M[i][j] = (msg.charCodeAt(i*64+j*4)<<24) | (msg.charCodeAt(i*64+j*4+1)<<16) |
                       (msg.charCodeAt(i*64+j*4+2)<<8) | (msg.charCodeAt(i*64+j*4+3));
         } // note running off the end of msg is ok 'cos bitwise ops on NaN return 0
     }
@@ -138,12 +136,10 @@ Sha256.hash = function(msg) {
     M[N-1][14] = ((msg.length-1)*8) / Math.pow(2, 32); M[N-1][14] = Math.floor(M[N-1][14]);
     M[N-1][15] = ((msg.length-1)*8) & 0xffffffff;
 
-
     // HASH COMPUTATION [§6.1.2]
 
     var W = new Array(64); var a, b, c, d, e, f, g, h;
     for (var i=0; i<N; i++) {
-
         // 1 - prepare message schedule 'W'
         for (var t=0;  t<16; t++) W[t] = M[i][t];
         for (var t=16; t<64; t++) W[t] = (Sha256.σ1(W[t-2]) + W[t-7] + Sha256.σ0(W[t-15]) + W[t-16]) & 0xffffffff;
@@ -166,19 +162,18 @@ Sha256.hash = function(msg) {
         }
          // 4 - compute the new intermediate hash value (note 'addition modulo 2^32')
         H[0] = (H[0]+a) & 0xffffffff;
-        H[1] = (H[1]+b) & 0xffffffff; 
-        H[2] = (H[2]+c) & 0xffffffff; 
-        H[3] = (H[3]+d) & 0xffffffff; 
+        H[1] = (H[1]+b) & 0xffffffff;
+        H[2] = (H[2]+c) & 0xffffffff;
+        H[3] = (H[3]+d) & 0xffffffff;
         H[4] = (H[4]+e) & 0xffffffff;
         H[5] = (H[5]+f) & 0xffffffff;
-        H[6] = (H[6]+g) & 0xffffffff; 
-        H[7] = (H[7]+h) & 0xffffffff; 
+        H[6] = (H[6]+g) & 0xffffffff;
+        H[7] = (H[7]+h) & 0xffffffff;
     }
 
-    return Sha256.toHexStr(H[0]) + Sha256.toHexStr(H[1]) + Sha256.toHexStr(H[2]) + Sha256.toHexStr(H[3]) + 
+    return Sha256.toHexStr(H[0]) + Sha256.toHexStr(H[1]) + Sha256.toHexStr(H[2]) + Sha256.toHexStr(H[3]) +
            Sha256.toHexStr(H[4]) + Sha256.toHexStr(H[5]) + Sha256.toHexStr(H[6]) + Sha256.toHexStr(H[7]);
 };
-
 
 /**
  * Rotates right (circular right shift) value x by n positions [§3.2.4].
@@ -199,7 +194,6 @@ Sha256.σ1  = function(x) { return Sha256.ROTR(17, x) ^ Sha256.ROTR(19, x) ^ (x>
 Sha256.Ch  = function(x, y, z) { return (x & y) ^ (~x & z); };
 Sha256.Maj = function(x, y, z) { return (x & y) ^ (x & z) ^ (y & z); };
 
-
 /**
  * Hexadecimal representation of a number.
  * @private
@@ -212,9 +206,7 @@ Sha256.toHexStr = function(n) {
     return s;
 };
 
-
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
-
 
 /** Extend String object with method to encode multi-byte string to utf8
  *  - monsur.hossa.in/2012/07/20/utf-8-in-javascript.html */
@@ -234,7 +226,6 @@ if (typeof String.prototype.utf8Decode == 'undefined') {
         }
     };
 }
-
 
 /* - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -  */
 if (typeof module != 'undefined' && module.exports) module.exports = Sha256; // CommonJs export

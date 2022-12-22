@@ -1,7 +1,7 @@
+using IdentityModel;
 using System.Security.Cryptography;
 using System.Security.Cryptography.X509Certificates;
 using System.Text.Json;
-using IdentityModel;
 
 namespace IdentityServer7.Extensions
 {

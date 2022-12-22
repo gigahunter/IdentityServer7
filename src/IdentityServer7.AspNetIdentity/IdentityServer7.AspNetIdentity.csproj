@@ -13,7 +13,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="IdentityServer7" Version="1.0.1" />
+    <ProjectReference Include="..\IdentityServer7\IdentityServer7.csproj" />
   </ItemGroup>
 
 </Project>

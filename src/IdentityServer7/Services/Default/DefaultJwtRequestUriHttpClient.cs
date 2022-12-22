@@ -1,11 +1,10 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
-using Microsoft.Extensions.Logging;
 using IdentityModel;
 using IdentityServer7.Configuration;
 using IdentityServer7.Storage.Models;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer7.Services
 {
@@ -31,12 +30,12 @@ namespace IdentityServer7.Services
             _logger = loggerFactory.CreateLogger<DefaultJwtRequestUriHttpClient>();
         }
 
-
         /// <inheritdoc />
         public async Task<string> GetJwtAsync(string url, Client client)
         {
             var req = new HttpRequestMessage(HttpMethod.Get, url);
-            req.Properties.Add(IdentityServerConstants.JwtRequestClientKey, client);
+            //req.Properties.Add(IdentityServerConstants.JwtRequestClientKey, client);
+            req.Options.Set(new HttpRequestOptionsKey<Client>(IdentityServerConstants.JwtRequestClientKey), client);
 
             var response = await _client.SendAsync(req);
             if (response.StatusCode == System.Net.HttpStatusCode.OK)

@@ -1,6 +1,5 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
 
 using IdentityModel;
 using IdentityServer7;
@@ -16,7 +15,7 @@ namespace Microsoft.Extensions.DependencyInjection
     public static class IdentityServerBuilderExtensions
     {
         /// <summary>
-        /// Configures IdentityServer to use the ASP.NET Identity implementations 
+        /// Configures IdentityServer to use the ASP.NET Identity implementations
         /// of IUserClaimsPrincipalFactory, IResourceOwnerPasswordValidator, and IProfileService.
         /// Also configures some of ASP.NET Identity's options for use with IdentityServer (such as claim types to use
         /// and authentication cookie settings).
@@ -113,7 +112,7 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 services.Add(new ServiceDescriptor(typeof(Decorator<TService>), provider =>
                 {
-                    return new DisposableDecorator<TService>((TService)registration.ImplementationFactory(provider));
+                    return new DisposableDecorator<TService>((TService) registration.ImplementationFactory(provider));
                 }, registration.Lifetime));
             }
             else

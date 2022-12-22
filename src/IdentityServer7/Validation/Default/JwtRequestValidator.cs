@@ -3,19 +3,16 @@
 
 //ProcessPayloadAsync方法更改
 
-using System.IdentityModel.Tokens.Jwt;
-using System.Text.Json.Nodes;
-
 using IdentityModel;
-
 using IdentityServer7.Configuration;
 using IdentityServer7.Extensions;
 using IdentityServer7.Models;
 using IdentityServer7.Storage.Models;
-
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
+using System.Text.Json.Nodes;
 
 namespace IdentityServer7.Validation
 {
@@ -192,12 +189,10 @@ namespace IdentityServer7.Validation
         /// <returns></returns>
         protected virtual Task<Dictionary<string, string>> ProcessPayloadAsync(JwtSecurityToken token)
         {
-
             // filter JWT validation values
             var filter = Constants.Filters.JwtRequestClaimTypesFilter.ToList();
 
             var filtered = token.Claims.Where(claim => !filter.Contains(claim.Type));
-
 
             // filter JWT validation values
             var payload = new Dictionary<string, string>();
@@ -212,9 +207,11 @@ namespace IdentityServer7.Validation
                         case string s:
                             payload.Add(key, s);
                             break;
+
                         case JsonObject jobj:
                             payload.Add(key, jobj.ToJsonString());
                             break;
+
                         case JsonArray jarr:
                             payload.Add(key, jarr.ToJsonString());
                             break;

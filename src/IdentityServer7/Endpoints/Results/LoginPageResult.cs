@@ -1,15 +1,14 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
+using IdentityServer7.Configuration;
+using IdentityServer7.Extensions;
 using IdentityServer7.Hosting;
+using IdentityServer7.Models;
+using IdentityServer7.Storage;
 using IdentityServer7.Validation;
 using Microsoft.AspNetCore.Http;
-using IdentityServer7.Extensions;
-using IdentityServer7.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using IdentityServer7.Storage;
-using IdentityServer7.Models;
 
 namespace IdentityServer7.Endpoints.Results
 {
@@ -74,7 +73,7 @@ namespace IdentityServer7.Endpoints.Results
             var loginUrl = _options.UserInteraction.LoginUrl;
             if (!loginUrl.IsLocalUrl())
             {
-                // this converts the relative redirect path to an absolute one if we're 
+                // this converts the relative redirect path to an absolute one if we're
                 // redirecting to a different server
                 returnUrl = context.GetIdentityServerHost().EnsureTrailingSlash() + returnUrl.RemoveLeadingSlash();
             }

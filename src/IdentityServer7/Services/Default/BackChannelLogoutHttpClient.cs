@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using Microsoft.Extensions.Logging;
 
 namespace IdentityServer7.Services
@@ -38,11 +37,11 @@ namespace IdentityServer7.Services
                 var response = await _client.PostAsync(url, new FormUrlEncodedContent(payload));
                 if (response.IsSuccessStatusCode)
                 {
-                    _logger.LogDebug("Response from back-channel logout endpoint: {url} status code: {status}", url, (int)response.StatusCode);
+                    _logger.LogDebug("Response from back-channel logout endpoint: {url} status code: {status}", url, (int) response.StatusCode);
                 }
                 else
                 {
-                    _logger.LogWarning("Response from back-channel logout endpoint: {url} status code: {status}", url, (int)response.StatusCode);
+                    _logger.LogWarning("Response from back-channel logout endpoint: {url} status code: {status}", url, (int) response.StatusCode);
                 }
             }
             catch (Exception ex)

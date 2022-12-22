@@ -1,12 +1,11 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
-using System.Diagnostics;
-using Microsoft.AspNetCore.Http;
 using IdentityServer7.Configuration;
 using IdentityServer7.Services;
 using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
+using System.Diagnostics;
 
 namespace IdentityServer7.Events
 {
@@ -80,12 +79,16 @@ namespace IdentityServer7.Events
             {
                 case EventTypes.Failure:
                     return Options.Events.RaiseFailureEvents;
+
                 case EventTypes.Information:
                     return Options.Events.RaiseInformationEvents;
+
                 case EventTypes.Success:
                     return Options.Events.RaiseSuccessEvents;
+
                 case EventTypes.Error:
                     return Options.Events.RaiseErrorEvents;
+
                 default:
                     throw new ArgumentOutOfRangeException(nameof(evtType));
             }

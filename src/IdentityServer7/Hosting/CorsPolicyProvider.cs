@@ -1,15 +1,14 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
-using Microsoft.Extensions.Logging;
-using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Cors.Infrastructure;
 using IdentityServer7.Configuration;
 using IdentityServer7.Configuration.DependencyInjection;
-using Microsoft.Extensions.DependencyInjection;
 using IdentityServer7.Extensions;
 using IdentityServer7.Storage.Services;
+using Microsoft.AspNetCore.Cors.Infrastructure;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Logging;
 
 namespace IdentityServer7.Hosting
 {
@@ -54,7 +53,7 @@ namespace IdentityServer7.Hosting
                 {
                     _logger.LogDebug("CORS request made for path: {path} from origin: {origin}", path, origin);
 
-                    // manually resolving this from DI because this: 
+                    // manually resolving this from DI because this:
                     // https://github.com/aspnet/CORS/issues/105
                     var corsPolicyService = _httpContext.HttpContext.RequestServices.GetRequiredService<ICorsPolicyService>();
 

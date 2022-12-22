@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityServer7;
 using IdentityServer7.Configuration;
 using IdentityServer7.Configuration.DependencyInjection;
@@ -9,24 +8,24 @@ using IdentityServer7.Endpoints;
 using IdentityServer7.Events;
 using IdentityServer7.Extensions;
 using IdentityServer7.Hosting;
+using IdentityServer7.Hosting.FederatedSignOut;
+using IdentityServer7.Models;
 using IdentityServer7.ResponseHandling;
 using IdentityServer7.Services;
+using IdentityServer7.Services.Default;
 using IdentityServer7.Storage;
+using IdentityServer7.Storage.Services;
+using IdentityServer7.Storage.Stores;
+using IdentityServer7.Storage.Stores.Serialization;
 using IdentityServer7.Validation;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Options;
-using IdentityServer7.Models;
-using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authentication;
-using IdentityServer7.Hosting.FederatedSignOut;
-using IdentityServer7.Services.Default;
 using Constants = IdentityServer7.Constants;
 using IdentityServerConstants = IdentityServer7.IdentityServerConstants;
-using IdentityServer7.Storage.Services;
-using IdentityServer7.Storage.Stores;
-using IdentityServer7.Storage.Stores.Serialization;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -294,7 +293,7 @@ namespace Microsoft.Extensions.DependencyInjection
             {
                 services.Add(new ServiceDescriptor(typeof(Decorator<TService>), provider =>
                 {
-                    return new DisposableDecorator<TService>((TService)registration.ImplementationFactory(provider));
+                    return new DisposableDecorator<TService>((TService) registration.ImplementationFactory(provider));
                 }, registration.Lifetime));
             }
             else

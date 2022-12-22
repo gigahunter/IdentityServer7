@@ -1,6 +1,5 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
 
 using IdentityModel;
 using IdentityServer7.Extensions;
@@ -73,7 +72,7 @@ namespace IdentityServer7.Validation
         /// </summary>
         /// <param name="subject">The subject claim used to uniquely identifier the user.</param>
         /// <param name="authenticationMethod">The authentication method which describes the custom grant type.</param>
-        /// <param name="claims">Additional claims that will be maintained in the principal. 
+        /// <param name="claims">Additional claims that will be maintained in the principal.
         /// If you want these claims to appear in token, you need to add them explicitly in your custom implementation of <see cref="Services.IProfileService"/> service.</param>
         /// <param name="identityProvider">The identity provider.</param>
         /// <param name="customResponse">The custom response.</param>

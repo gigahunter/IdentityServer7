@@ -1,17 +1,14 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
-using System.IdentityModel.Tokens.Jwt;
-
 using IdentityServer7.Extensions;
 using IdentityServer7.Models;
 using IdentityServer7.Services;
 using IdentityServer7.Storage.Models;
-
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
+using System.IdentityModel.Tokens.Jwt;
 
 namespace IdentityServer7.Validation
 {
@@ -82,7 +79,7 @@ namespace IdentityServer7.Validation
             {
                 // issuer URI (tbd)
                 //_contextAccessor.HttpContext.GetIdentityServerIssuerUri(),
-                
+
                 // token endpoint URL
                 string.Concat(_contextAccessor.HttpContext.GetIdentityServerIssuerUri().EnsureTrailingSlash(),
                     Constants.ProtocolRoutePaths.Token)
@@ -109,7 +106,7 @@ namespace IdentityServer7.Validation
                 var handler = new JwtSecurityTokenHandler();
                 handler.ValidateToken(jwtTokenString, tokenValidationParameters, out var token);
 
-                var jwtToken = (JwtSecurityToken)token;
+                var jwtToken = (JwtSecurityToken) token;
                 if (jwtToken.Subject != jwtToken.Issuer)
                 {
                     _logger.LogError("Both 'sub' and 'iss' in the client assertion token must have a value of client_id.");

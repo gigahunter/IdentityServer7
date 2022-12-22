@@ -1,6 +1,5 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
 
 using IdentityServer7.EntityFramework.Services;
 using IdentityServer7.EntityFramework.Storage.Configuration;
@@ -103,7 +102,7 @@ namespace IdentityServer7.EntityFramework
 
             builder.Services.AddTransient<IPersistedGrantStore, PersistedGrantStore>();
             builder.Services.AddTransient<IDeviceFlowStore, DeviceFlowStore>();
-            builder.Services.AddSingleton<IHostedService,TokenCleanupHost>();
+            builder.Services.AddSingleton<IHostedService, TokenCleanupHost>();
 
             return builder;
         }

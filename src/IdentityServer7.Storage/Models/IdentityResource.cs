@@ -1,10 +1,8 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
-using System.Diagnostics;
-
 using IdentityServer7.Storage.Extensions;
+using System.Diagnostics;
 
 namespace IdentityServer7.Storage.Models;
 
@@ -61,7 +59,7 @@ public class IdentityResource : Resource
     public bool Required { get; set; } = false;
 
     /// <summary>
-    /// Specifies whether the consent screen will emphasize this scope (if the consent screen wants to implement such a feature). 
+    /// Specifies whether the consent screen will emphasize this scope (if the consent screen wants to implement such a feature).
     /// Use this setting for sensitive or important scopes. Defaults to false.
     /// </summary>
     public bool Emphasize { get; set; } = false;

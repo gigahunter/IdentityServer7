@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityModel;
 using IdentityServer7.Validation;
 using Microsoft.AspNetCore.Authentication;
@@ -29,12 +28,12 @@ namespace IdentityServer7.Hosting.LocalApiAuthentication
         }
 
         /// <summary>
-        /// The handler calls methods on the events which give the application control at certain points where processing is occurring. 
+        /// The handler calls methods on the events which give the application control at certain points where processing is occurring.
         /// If it is not provided a default instance is supplied which does nothing when the methods are called.
         /// </summary>
         protected new LocalApiAuthenticationEvents Events
         {
-            get => (LocalApiAuthenticationEvents)base.Events;
+            get => (LocalApiAuthenticationEvents) base.Events;
             set => base.Events = value;
         }
 

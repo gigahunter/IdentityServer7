@@ -108,7 +108,7 @@ namespace WebIdentityServer.Seed
                 var clients = await context.Clients
                     .Distinct()
                     .ToDictionaryAsync(x => x.ClientId);
-                
+
                 foreach (var item in Config.Clients)
                 {
                     if (!clients.ContainsKey(item.ClientId))
@@ -121,18 +121,18 @@ namespace WebIdentityServer.Seed
 
             async Task CreateScopes()
             {
-                    var apiScopes = await context.ApiScopes
-                        .Distinct()
-                        .ToDictionaryAsync(x=>x.Name);
-                    
-                    foreach (var item in Config.ApiScopes)
+                var apiScopes = await context.ApiScopes
+                    .Distinct()
+                    .ToDictionaryAsync(x => x.Name);
+
+                foreach (var item in Config.ApiScopes)
+                {
+                    if (!apiScopes.ContainsKey(item.Name))
                     {
-                        if (!apiScopes.ContainsKey(item.Name))
-                        {
-                            await context.ApiScopes.AddAsync(item.ToEntity());
-                        }
-                        
+                        await context.ApiScopes.AddAsync(item.ToEntity());
                     }
+
+                }
             }
 
             async Task CreateApiResources()

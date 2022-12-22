@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using System.Collections;
 using System.Diagnostics;
 
@@ -212,7 +211,7 @@ public class Client
     /// <summary>
     /// Absolute: the refresh token will expire on a fixed point in time (specified by the AbsoluteRefreshTokenLifetime)
     /// Sliding: when refreshing the token, the lifetime of the refresh token will be renewed (by the amount specified in SlidingRefreshTokenLifetime). The lifetime will not exceed AbsoluteRefreshTokenLifetime.
-    /// </summary>        
+    /// </summary>
     public TokenExpiration RefreshTokenExpiration { get; set; } = TokenExpiration.Absolute;
 
     /// <summary>
@@ -360,7 +359,7 @@ public class Client
         }
     }
 
-    public class GrantTypeValidatingHashSet : ICollection<string>
+    internal class GrantTypeValidatingHashSet : ICollection<string>
     {
         private readonly ICollection<string> _inner;
 

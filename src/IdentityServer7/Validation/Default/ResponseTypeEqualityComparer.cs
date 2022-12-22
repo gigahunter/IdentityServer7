@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 namespace IdentityServer7.Validation
 {
     /// <summary>
@@ -11,8 +10,8 @@ namespace IdentityServer7.Validation
     /// <para>
     /// This is to handle the fact that the order of multi-valued response_type lists is
     /// insignificant, per the <see href="https://tools.ietf.org/html/rfc6749#section-3.1.1">OAuth2 spec</see>
-    /// and the 
-    /// (<see href="http://openid.net/specs/oauth-v2-multiple-response-types-1_0-03.html#terminology">OAuth 
+    /// and the
+    /// (<see href="http://openid.net/specs/oauth-v2-multiple-response-types-1_0-03.html#terminology">OAuth
     /// 2.0 Multiple Response Type Encoding Practices draft </see>).
     /// </para>
     /// </remarks>

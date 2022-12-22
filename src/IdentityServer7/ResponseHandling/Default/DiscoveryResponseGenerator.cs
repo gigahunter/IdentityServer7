@@ -1,18 +1,17 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityModel;
 using IdentityServer7.Configuration;
 using IdentityServer7.Services;
 using IdentityServer7.Storage;
+using IdentityServer7.Storage.Extensions;
+using IdentityServer7.Storage.Stores;
 using IdentityServer7.Validation;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Cryptography;
 using StringExtensions = IdentityServer7.Extensions.StringExtensions;
-using IdentityServer7.Storage.Stores;
-using IdentityServer7.Storage.Extensions;
 
 namespace IdentityServer7.ResponseHandling
 {
@@ -332,7 +331,7 @@ namespace IdentityServer7.ResponseHandling
             }
 
             // custom entries
-            
+
             if (!EnumerableExtensions.IsNullOrEmpty(Options.Discovery.CustomEntries))
             {
                 foreach ((string key, object value) in Options.Discovery.CustomEntries)

@@ -1,8 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-using System.Collections.Specialized;
-using System.Net;
 using IdentityServer7.Configuration;
 using IdentityServer7.Endpoints.Results;
 using IdentityServer7.Extensions;
@@ -12,6 +10,8 @@ using IdentityServer7.Services;
 using IdentityServer7.Validation;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.Logging;
+using System.Collections.Specialized;
+using System.Net;
 
 namespace IdentityServer7.Endpoints
 {

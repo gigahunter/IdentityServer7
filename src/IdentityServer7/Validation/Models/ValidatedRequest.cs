@@ -1,13 +1,12 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
+using IdentityModel;
 using IdentityServer7.Configuration;
 using IdentityServer7.Models;
+using IdentityServer7.Storage.Models;
 using System.Collections.Specialized;
 using System.Security.Claims;
-using IdentityModel;
-using IdentityServer7.Storage.Models;
 
 namespace IdentityServer7.Validation
 {

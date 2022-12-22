@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityModel;
 using IdentityServer7.Extensions;
 using IdentityServer7.Models;
@@ -142,7 +141,7 @@ namespace IdentityServer7.Services
             }
 
             // add scopes (filter offline_access)
-            // we use the ScopeValues collection rather than the Resources.Scopes because we support dynamic scope values 
+            // we use the ScopeValues collection rather than the Resources.Scopes because we support dynamic scope values
             // from the request, so this issues those in the token.
             foreach (var scope in resourceResult.RawScopeValues.Where(x => x != IdentityServerConstants.StandardScopes.OfflineAccess))
             {

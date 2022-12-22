@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
@@ -12,10 +11,10 @@ namespace IdentityServer7.Logging
     /// </summary>
     public static class LogSerializer
     {
-        static readonly JsonSerializerOptions Options = new JsonSerializerOptions
+        private static readonly JsonSerializerOptions Options = new JsonSerializerOptions
         {
             //IgnoreNullValues = true,
-            ReferenceHandler=ReferenceHandler.IgnoreCycles,
+            ReferenceHandler = ReferenceHandler.IgnoreCycles,
             DefaultIgnoreCondition = System.Text.Json.Serialization.JsonIgnoreCondition.WhenWritingNull,
             WriteIndented = true
         };

@@ -1,15 +1,14 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityServer7.Services;
 using IdentityServer7.Storage;
-using Microsoft.Extensions.Caching.Memory;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using Microsoft.Extensions.Configuration;
-using IdentityServer7.Storage.Services;
 using IdentityServer7.Storage.Models;
+using IdentityServer7.Storage.Services;
 using IdentityServer7.Storage.Stores;
+using Microsoft.Extensions.Caching.Memory;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
@@ -140,7 +139,6 @@ namespace Microsoft.Extensions.DependencyInjection
             return builder;
         }
 
-
         /// <summary>
         /// Adds the in memory clients.
         /// </summary>
@@ -154,7 +152,6 @@ namespace Microsoft.Extensions.DependencyInjection
 
             return builder.AddInMemoryClients(clients);
         }
-
 
         /// <summary>
         /// Adds the in memory stores.

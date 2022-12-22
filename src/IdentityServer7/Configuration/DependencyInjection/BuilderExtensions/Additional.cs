@@ -1,22 +1,21 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
+using IdentityServer7.Configuration;
 using IdentityServer7.ResponseHandling;
 using IdentityServer7.Services;
 using IdentityServer7.Storage;
-using IdentityServer7.Validation;
-using Microsoft.Extensions.DependencyInjection.Extensions;
-using IdentityServer7.Configuration;
-using Microsoft.Extensions.Logging;
-using IdentityServerConstants = IdentityServer7.IdentityServerConstants;
 using IdentityServer7.Storage.Services;
 using IdentityServer7.Storage.Stores;
+using IdentityServer7.Validation;
+using Microsoft.Extensions.DependencyInjection.Extensions;
+using Microsoft.Extensions.Logging;
+using IdentityServerConstants = IdentityServer7.IdentityServerConstants;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
     /// <summary>
-    /// Builder extension methods for registering additional services 
+    /// Builder extension methods for registering additional services
     /// </summary>
     public static class IdentityServerBuilderExtensionsAdditional
     {
@@ -389,7 +388,6 @@ namespace Microsoft.Extensions.DependencyInjection
 
             return httpBuilder;
         }
-
 
         // todo: check with later previews of ASP.NET Core if this is still required
         /// <summary>

@@ -1,6 +1,5 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
-
 
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
@@ -12,7 +11,7 @@ namespace IdentityServer7.Hosting.FederatedSignOut
         private readonly IAuthenticationSignOutHandler _inner;
 
         public AuthenticationRequestSignOutHandlerWrapper(IAuthenticationSignOutHandler inner, IHttpContextAccessor httpContextAccessor)
-            : base((IAuthenticationRequestHandler)inner, httpContextAccessor)
+            : base((IAuthenticationRequestHandler) inner, httpContextAccessor)
         {
             _inner = inner;
         }

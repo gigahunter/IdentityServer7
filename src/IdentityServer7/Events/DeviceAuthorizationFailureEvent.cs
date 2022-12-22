@@ -1,7 +1,6 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
 using IdentityServer7.Extensions;
 using IdentityServer7.Validation;
 
@@ -25,7 +24,6 @@ namespace IdentityServer7.Events
                 ClientId = result.ValidatedRequest.Client?.ClientId;
                 ClientName = result.ValidatedRequest.Client?.ClientName;
                 Scopes = result.ValidatedRequest.RequestedScopes?.ToSpaceSeparatedString();
-
             }
 
             Endpoint = Constants.EndpointNames.DeviceAuthorization;

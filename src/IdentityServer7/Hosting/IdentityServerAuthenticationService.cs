@@ -1,25 +1,24 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
-using Microsoft.AspNetCore.Authentication;
-using Microsoft.AspNetCore.Http;
-using System.Security.Claims;
-using IdentityServer7.Services;
-using Microsoft.Extensions.Logging;
-using IdentityServer7.Configuration.DependencyInjection;
-using IdentityServer7.Extensions;
 using IdentityModel;
 using IdentityServer7.Configuration;
+using IdentityServer7.Configuration.DependencyInjection;
+using IdentityServer7.Extensions;
+using IdentityServer7.Services;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Logging;
+using System.Security.Claims;
 
 namespace IdentityServer7.Hosting
 {
-    // this decorates the real authentication service to detect when the 
+    // this decorates the real authentication service to detect when the
     // user is being signed in. this allows us to ensure the user has
     // the claims needed for identity server to do its job. it also allows
     // us to track signin/signout so we can issue/remove the session id
     // cookie used for check session iframe for session management spec.
-    // finally, we track if signout is called to collaborate with the 
+    // finally, we track if signout is called to collaborate with the
     // FederatedSignoutAuthenticationHandlerProvider for federated signout.
     public class IdentityServerAuthenticationService : IAuthenticationService
     {

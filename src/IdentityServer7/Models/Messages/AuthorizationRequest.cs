@@ -1,10 +1,9 @@
-﻿// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
+// Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
+using IdentityServer7.Storage.Models;
 using IdentityServer7.Validation;
 using System.Collections.Specialized;
-using IdentityServer7.Storage.Models;
 
 namespace IdentityServer7.Models
 {
@@ -43,8 +42,8 @@ namespace IdentityServer7.Models
         public string UiLocales { get; set; }
 
         /// <summary>
-        /// The external identity provider requested. This is used to bypass home realm 
-        /// discovery (HRD). This is provided via the <c>"idp:"</c> prefix to the <c>acr</c> 
+        /// The external identity provider requested. This is used to bypass home realm
+        /// discovery (HRD). This is provided via the <c>"idp:"</c> prefix to the <c>acr</c>
         /// parameter on the authorize request.
         /// </summary>
         /// <value>
@@ -53,7 +52,7 @@ namespace IdentityServer7.Models
         public string IdP { get; set; }
 
         /// <summary>
-        /// The tenant requested. This is provided via the <c>"tenant:"</c> prefix to 
+        /// The tenant requested. This is provided via the <c>"tenant:"</c> prefix to
         /// the <c>acr</c> parameter on the authorize request.
         /// </summary>
         /// <value>
@@ -62,7 +61,7 @@ namespace IdentityServer7.Models
         public string Tenant { get; set; }
 
         /// <summary>
-        /// The expected username the user will use to login. This is requested from the client 
+        /// The expected username the user will use to login. This is requested from the client
         /// via the <c>login_hint</c> parameter on the authorize request.
         /// </summary>
         /// <value>
@@ -106,7 +105,6 @@ namespace IdentityServer7.Models
         /// The request object values
         /// </value>
         public Dictionary<string, string> RequestObjectValues { get; } = new Dictionary<string, string>();
-
 
         /// <summary>
         /// Initializes a new instance of the <see cref="AuthorizationRequest"/> class.

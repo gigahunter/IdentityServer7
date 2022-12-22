@@ -1,18 +1,17 @@
 // Copyright (c) Brock Allen & Dominick Baier. All rights reserved.
 // Licensed under the Apache License, Version 2.0. See LICENSE in the project root for license information.
 
-
-using IdentityServer7.Models;
+using IdentityModel;
+using IdentityServer7.Configuration;
 using IdentityServer7.Extensions;
 using IdentityServer7.Hosting;
-using IdentityModel;
+using IdentityServer7.Models;
+using IdentityServer7.ResponseHandling;
+using IdentityServer7.Services;
+using IdentityServer7.Storage;
+using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using IdentityServer7.Services;
-using IdentityServer7.Configuration;
-using IdentityServer7.Storage;
-using IdentityServer7.ResponseHandling;
-using Microsoft.AspNetCore.Authentication;
 using System.Text.Encodings.Web;
 
 namespace IdentityServer7.Endpoints.Results
@@ -69,7 +68,7 @@ namespace IdentityServer7.Endpoints.Results
 
         private async Task ProcessErrorAsync(HttpContext context)
         {
-            // these are the conditions where we can send a response 
+            // these are the conditions where we can send a response
             // back directly to the client, otherwise we're only showing the error UI
             var isSafeError =
                 Response.Error == OidcConstants.AuthorizeErrors.AccessDenied ||

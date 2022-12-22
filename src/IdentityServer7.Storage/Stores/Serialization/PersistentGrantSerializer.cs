@@ -4,8 +4,6 @@
 using System.Text.Json;
 using System.Text.Json.Serialization;
 
-using IdentityServer7.Storage.Stores.Serialization;
-
 namespace IdentityServer7.Storage.Stores.Serialization;
 
 /// <summary>
@@ -20,8 +18,8 @@ public class PersistentGrantSerializer : IPersistentGrantSerializer
     {
         _settings = new JsonSerializerOptions
         {
-            //IgnoreReadOnlyFields = true,
-            //IgnoreReadOnlyProperties = true,
+            IgnoreReadOnlyFields = true,
+            IgnoreReadOnlyProperties = true,
             //DefaultIgnoreCondition = JsonIgnoreCondition.WhenWritingDefault,
             ReferenceHandler = ReferenceHandler.IgnoreCycles,
             //TypeInfoResolver= new CustomContractResolver()
