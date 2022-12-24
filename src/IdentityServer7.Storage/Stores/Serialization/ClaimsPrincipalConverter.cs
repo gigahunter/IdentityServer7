@@ -12,11 +12,6 @@ namespace IdentityServer7.Storage.Stores.Serialization;
 
 public class ClaimsPrincipalConverter : JsonConverter<ClaimsPrincipal>
 {
-    public override bool CanConvert(Type objectType)
-    {
-        return typeof(ClaimsPrincipal) == objectType;
-    }
-
     public override ClaimsPrincipal Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         var source = JsonSerializer.Deserialize<ClaimsPrincipalLite>(ref reader, options);

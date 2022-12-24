@@ -128,8 +128,8 @@ namespace IdentityServer7.Services
         /// <returns>The signed JWT</returns>
         protected virtual Task<string> CreateJwtAsync(JwtSecurityToken jwt)
         {
-            JwtSecurityTokenHandler handler = new JwtSecurityTokenHandler();
-            //TODO Json循环依赖
+            var handler = new JwtSecurityTokenHandler();
+            //Json循环依赖 => Use PersistentGrantSerializer.OverrideSerializer = true, to solve...
             return Task.FromResult(handler.WriteToken(jwt));
         }
     }

@@ -15,9 +15,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Stores\Serialization\JTokenConverter.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="IdentityModel" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="IdentityModel" Version="6.0.0" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" Version="6.25.1" />
   </ItemGroup>
 </Project>

@@ -11,11 +11,6 @@ namespace IdentityServer7.Storage.Stores.Serialization;
 
 public class ClaimConverter : JsonConverter<Claim>
 {
-    public override bool CanConvert(Type typeToConvert)
-    {
-        return typeof(Claim) == typeToConvert;
-    }
-
     public override Claim Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
     {
         var source = JsonSerializer.Deserialize<ClaimLite>(ref reader, options);

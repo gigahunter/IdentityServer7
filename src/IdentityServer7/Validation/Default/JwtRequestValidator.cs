@@ -215,6 +215,10 @@ namespace IdentityServer7.Validation
                         case JsonArray jarr:
                             payload.Add(key, jarr.ToJsonString());
                             break;
+
+                        default:
+                            payload.Add(key, value.ToString());
+                            break;
                     }
                 }
             }
